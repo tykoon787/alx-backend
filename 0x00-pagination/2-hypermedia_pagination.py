@@ -40,7 +40,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """ 
+        """
         Retrieve a page data
         """
         assert type(page) == int and type(page_size) == int
@@ -61,13 +61,12 @@ class Server:
         total_page = math.ceil(len(self.__dataset) / page_size)
 
         page_info = {
-                'page_size': len(page_data),
-                'page': page,
-                'data': page_data,
-                'next_page': page + 1 if end < len(self.__dataset) else None,
-                'prev_page': page - 1 if start > 0 else None,
-                'total_pages': total_page
+            'page_size': len(page_data),
+            'page': page,
+            'data': page_data,
+            'next_page': page + 1 if end < len(self.__dataset) else None,
+            'prev_page': page - 1 if start > 0 else None,
+            'total_pages': total_page
         }
 
         return page_info
-
